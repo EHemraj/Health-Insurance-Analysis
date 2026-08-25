@@ -8,7 +8,7 @@ This is the Code Institute student template for the three Data Analytics capston
 
 You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
 
-If you are working on the first capstone project, you can also delete `.python-version`, `.slugignore`, `Procfile` and `setup.sh` as they are only required for later dashboard projects. 
+If you are working on the first capstone project, you can also delete `.python-version`, `.slugignore`, `Procfile` and `setup.sh` as they are only required for later dashboard projects.
 
 ## How to use this repo
 
@@ -29,9 +29,9 @@ If you are working on the first capstone project, you can also delete `.python-v
 1. This time, navigate to and select the folder for the project you just downloaded. Then, click **Select Folder**.
 
 1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate. You need to create your virtual environment, also called a venv, and then activate it whenever you return to your workspace.
-Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select **Command Palette** to open the VS Code command palette.
+   Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select **Command Palette** to open the VS Code command palette.
 
-1. In the command palette, type: *create environment* and select **Python: Create Environment…**
+1. In the command palette, type: _create environment_ and select **Python: Create Environment…**
 
 1. Choose **Venv** from the dropdown list.
 
@@ -47,9 +47,9 @@ Click the gear icon in the lower left-hand corner of the screen to open the Mana
 
 1. In the terminal, use the command below to install your dependencies. This may take several minutes.
 
- ```console
- pip3 install -r requirements.txt
- ```
+```console
+pip3 install -r requirements.txt
+```
 
 1. Open the `jupyter_notebooks` directory, and click on the notebook you want to open.
 
@@ -63,9 +63,9 @@ Note that the kernel says `Python 3.12.8` as it inherits from the venv, so it wi
 
 ## Deployment Reminders
 
-* The `.python-version`, `.slugignore`, `Procfile` and `setup.sh` files are necessary only if you are deploying a Streamlit app to Heroku as part of your submission for units 2 and 3. 
-* Set the `.python-version` Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack, currently supported version that most closely matches what you used in this project.
-* The project can be deployed to Heroku using the following steps.
+- The `.python-version`, `.slugignore`, `Procfile` and `setup.sh` files are necessary only if you are deploying a Streamlit app to Heroku as part of your submission for units 2 and 3.
+- Set the `.python-version` Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack, currently supported version that most closely matches what you used in this project.
+- The project can be deployed to Heroku using the following steps.
 
 1. Log in to Heroku and create an App
 2. At the **Deploy** tab, select **GitHub** as the deployment method.
