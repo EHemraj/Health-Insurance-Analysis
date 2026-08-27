@@ -1,75 +1,116 @@
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-## Template Instructions
+# Health Insurance Cost Analysis - Exploratory Data Analysis (EDA)
 
-Welcome,
+## Project Overview
 
-This is the Code Institute student template for the three Data Analytics capstone projects. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+This project performs an Exploratory Data Analysis (EDA) on a medical insurance dataset to identify the primary factors driving healthcare costs. The primary goal is to determine which customer attributes have the biggest impact on insurance charges and prepare the data for future predictive modelling.
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+## Dataset Content
 
-If you are working on the first capstone project, you can also delete `.python-version`, `.slugignore`, `Procfile` and `setup.sh` as they are only required for later dashboard projects.
+The dataset (insurance.csv) contains 1,338 records with demographic, physical, and lifestyle features:
 
-## How to use this repo
+- age: Age of the primary beneficiary.
+- sex: Gender of the insurance contractor (female, male).
+- bmi: Body mass index, providing an understanding of body weights relative to height.
+- children: Number of children covered by health insurance.
+- smoker: Smoking status (yes, no).
+- region: The beneficiary's residential area in the US (northeast, southeast, southwest, northwest).
+- charges: Individual medical costs billed by health insurance.
 
-1. Use this template to create your GitHub project repo. Click the **Use this template** button, then click **Create a new repository**.
+## Project Setup & Execution
 
-1. Copy the URL of your repository to your clipboard.
+To run this project locally:
 
-1. In VS Code, select **File** -> **Open Folder**.
+1. Clone this repository to your local system.
+2. Create a virtual environment (.venv).
+3. Install the required dependencies using the terminal command:
+   pip3 install -r requirements.txt
+4. Open the Jupyter Notebook in the jupyter_notebooks directory and select the Python environment kernel to execute the cells.
 
-1. Select your `vscode-projects` folder, then click the **Select Folder** button on Windows, or the **Open** button on Mac.
+> Note on Interactive Visualisations: GitHub README files do not render interactive Plotly graphs. To interact with the 3D scatter plot, please open and run Health_Insurance.ipynb locally in VS Code or Jupyter.
 
-1. From the top menu in VS Code, select **Terminal** > **New Terminal** to open a new terminal.
+## Business Requirements
 
-1. In the terminal, type `git clone` followed by the URL of your GitHub repository. Then hit **Enter**. This command will download all the files in your GitHub repository into your vscode-projects folder.
+To understand how different geographical, personal, and lifestyle factors affect healthcare insurance costs in the United States, in order to improve cost estimation.
 
-1. In VS Code, select **File** > **Open Folder** again.
+### Hypotheses & Validation Strategy
 
-1. This time, navigate to and select the folder for the project you just downloaded. Then, click **Select Folder**.
+1. Smoker Status: People who smoke are likely to have much higher medical charges than non-smokers.
+2. BMI: Higher BMI is linked to higher medical charges.
+3. Age: Insurance charges increase as age increases.
+4. Demographics (Region, Sex, Children): Geographical region, sex, and number of children may also influence medical charges.
 
-1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate. You need to create your virtual environment, also called a venv, and then activate it whenever you return to your workspace.
-   Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select **Command Palette** to open the VS Code command palette.
+## Rationale Mapping: Business Requirements to Data Visualisations
 
-1. In the command palette, type: _create environment_ and select **Python: Create Environment…**
+Visualisation was the primary tool used to explore patterns, compare groups, and test hypotheses:
 
-1. Choose **Venv** from the dropdown list.
+| Business Question / Hypothesis              | Visualisation Used                        | Rationale for Chart Selection                                                                                                                                            |
+| :------------------------------------------ | :---------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Are smokers charged more than non-smokers?  | Boxplots, Histograms, Scatter Plots       | Clearly shows the separation and spread of charges between smokers and non-smokers. Scatter plots reveal how smoking multiplies costs across other continuous variables. |
+| Does BMI affect medical charges?            | 2D Scatter Plots, Interactive 3D Plot     | BMI is continuous; scatter plots highlight trends and reveal critical threshold triggers (such as BMI >= 30).                                                            |
+| Do charges increase with age?               | Scatter Plots                             | Shows the steady, linear increase in baseline charges as age increases.                                                                                                  |
+| Do region, sex, or children affect charges? | Side-by-Side Bar Charts (with Smoker Hue) | Bar charts allow easy comparison of group averages across demographic categories, revealing that demographic variations are negligible compared to smoking status.       |
+| How do all factors interact together?       | 6-Panel Summary Grid                      | Consolidates all 2D and distribution visualisations onto a single canvas for a 360-degree analytical review.                                                             |
 
-1. Choose the Python version you installed earlier. Currently, we recommend Python 3.12.8
+## Project Plan
 
-1. **DO NOT** click the box next to `requirements.txt`; you need to complete additional steps before installing your dependencies. Click **OK**.
+1. Data Collection & Setup: Downloaded raw dataset (insurance.csv) into the project folder structure.
+2. Data Cleaning & Preprocessing: Checked for missing values, validated data types, and removed duplicate records (insurance_cleaned.csv).
+3. Exploratory Data Analysis: Built individual continuous and categorical charts, interactive 3D plots, and multi-panel grids to test all hypotheses.
+4. Summary Insights & Documentation: Consolidated analytical conclusions into Markdown cells, prepared next steps for modeling, and documented repository setup in the README.
 
-1. You will see a `.venv` folder appear in the file explorer pane, indicating that the virtual environment has been created.
+## Analysis Techniques Used
 
-1. **Important**: Note that the `.venv` folder is in the `.gitignore` file so that Git won't track it.
+Visual Exploratory Data Analysis (EDA) was structured step-by-step:
 
-1. Return to the terminal by clicking on the TERMINAL tab, or click on the **Terminal** menu and choose **New Terminal** if no terminal is currently open.
+## Analysis Techniques Used
 
-1. In the terminal, use the command below to install your dependencies. This may take several minutes.
+To explore the dataset, I picked specific charts based on the type of information I was looking at:
 
-```console
-pip3 install -r requirements.txt
-```
+- **Single & Pair Charts:**
+  - **Histograms & Boxplots:** Used to see how overall insurance charges are split up and spot extreme outliers in the data.
+  - **Scatter Plots:** Used for continuous numbers like age and BMI to see if charges went up gradually as people got older or their BMI increased.
+  - **Bar Charts:** Used to group people by categories (like region, sex, or number of kids) to compare average costs and distributions across groups.
 
-1. Open the `jupyter_notebooks` directory, and click on the notebook you want to open.
+- **Multi-Variable Charts:**
+  - **Color Coding:** Added colour to charts (like colouring scatter points by "smoker") to see how smoking changes the relationship between age, BMI, and total cost.
+  - **Interactive 3D Scatter Plot (Plotly):** Used to spin and look at Age, BMI, and Charges all at once in three dimensions.
+  - **6-Panel Summary Grid:** Combined 6 different key plots onto one single figure to compare all major findings side-by-side.
 
-1. Click the **Kernel** button, then choose **Python Environments**.
+- **AI Assistance:** Used Gemini and GitHub Copilot to troubleshoot code errors, suggest the best chart types for different variables, and refine analytical write-ups.
 
-Note that the kernel says `Python 3.12.8` as it inherits from the venv, so it will be Python-3.12.8 if that is what is installed on your PC. To confirm this, you can use the command below in a notebook code cell.
+## Ethical Considerations
 
-```console
-! python --version
-```
+The dataset consists of anonymised data from Kaggle and poses no direct personal privacy risks.
 
-## Deployment Reminders
+## Unfixed Bugs & Knowledge Gaps
 
-- The `.python-version`, `.slugignore`, `Procfile` and `setup.sh` files are necessary only if you are deploying a Streamlit app to Heroku as part of your submission for units 2 and 3.
-- Set the `.python-version` Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack, currently supported version that most closely matches what you used in this project.
-- The project can be deployed to Heroku using the following steps.
+- Plotly VS Code Rendering: Initial issues with Plotly 3D graphs rendering inside VS Code were resolved by updating environment display settings (ipykernel).
+- Knowledge Gaps Addressed: Improved understanding of multi-variable subplot layout management (plt.subplots) through experimentation, AI guidance, and Code Institute LMS documentation.
 
-1. Log in to Heroku and create an App
-2. At the **Deploy** tab, select **GitHub** as the deployment method.
-3. Select your repository name and click **Search**. Once it is found, click **Connect**.
-4. Select the branch you want to deploy, then click **Deploy Branch**.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button **Open App** at the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the `.slugignore` file.
+## Development Roadmap
+
+- Challenges Overcome: Effectively combining multiple categorical and continuous variables onto figures.
+- Learning which plots to use for each type of data.
+- Next Steps for Skill Development: Learn predictive analysis and predictive modelling.
+
+## Main Data Analysis Libraries
+
+- Pandas: Data loading, cleaning, and describing.
+- Matplotlib & Seaborn: scatter, bar, box and 6-panel summary plots.
+- Plotly Express: Interactive 3D scatter plot.
+
+## Credits & Acknowledgments
+
+- Educational Materials & LMS: Code Institute Data Analytics with AI course modules:
+  - Virtual Environments in Python, Version Control Basics, Working with Git, and Documentation (Introduction to the README).
+  - Data Manipulation: Pandas, Visualisation with Matplotlib, Advanced visualisation with Seaborn, and Interactive web-based visualisation with Plotly.
+  - Logo image
+- Base Repository Template: Code Institute Data Analytics Capstone Template.
+- AI:
+  - Gemini (Generative AI): Used as an interactive AI tutor and assistant to structure, draft, and refine the final README.md file as well as assist with plot selection guidance, environment troubleshooting, user stories and text formatting for insights.
+  - GitHub Copilot: Used for inline code completion and syntax assistance throughout notebook development.
+  - Jayne Lawley for code to save cleaned data.
+  - Pete Daniel Smith for the idea of showing a 3d scatter plot.
+- Acknowledgements: Special thanks to my husband, my tutors and colleagues from Code Institute for their support.
