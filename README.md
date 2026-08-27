@@ -36,22 +36,22 @@ To understand how different geographical, personal, and lifestyle factors affect
 
 ### Hypotheses & Validation Strategy
 
-1. Smoker Status: People who smoke are likely to have much higher medical charges than non-smokers.
-2. BMI: Higher BMI is linked to higher medical charges.
-3. Age: Insurance charges increase as age increases.
-4. Demographics (Region, Sex, Children): Geographical region, sex, and number of children may also influence medical charges.
+Age: Medical charges increase with age.
+Smoker Status: Patients who smoke have significantly higher medical charges than non-smokers.
+BMI: Patients with higher bmi generally have higher medical charges.
+Demographics (Region, Sex, Children): Geographical region, sex, and number of children may also influence medical charges.
 
 ## Rationale Mapping: Business Requirements to Data Visualisations
 
 Visualisation was the primary tool used to explore patterns, compare groups, and test hypotheses:
 
-| Business Question / Hypothesis              | Visualisation Used                        | Rationale for Chart Selection                                                                                                                                            |
-| :------------------------------------------ | :---------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Are smokers charged more than non-smokers?  | Boxplots, Histograms, Scatter Plots       | Clearly shows the separation and spread of charges between smokers and non-smokers. Scatter plots reveal how smoking multiplies costs across other continuous variables. |
-| Does BMI affect medical charges?            | 2D Scatter Plots, Interactive 3D Plot     | BMI is continuous; scatter plots highlight trends and reveal critical threshold triggers (such as BMI >= 30).                                                            |
-| Do charges increase with age?               | Scatter Plots                             | Shows the steady, linear increase in baseline charges as age increases.                                                                                                  |
-| Do region, sex, or children affect charges? | Side-by-Side Bar Charts (with Smoker Hue) | Bar charts allow easy comparison of group averages across demographic categories, revealing that demographic variations are negligible compared to smoking status.       |
-| How do all factors interact together?       | 6-Panel Summary Grid                      | Consolidates all 2D and distribution visualisations onto a single canvas for a 360-degree analytical review.                                                             |
+| Business Question / Hypothesis              | Visualisation Used                    | Rationale for Chart Selection                                                                                                                                            |
+| :------------------------------------------ | :------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Are smokers charged more than non-smokers?  | Barplots, Histograms, Scatter Plots   | Clearly shows the separation and spread of charges between smokers and non-smokers. Scatter plots reveal how smoking multiplies costs across other continuous variables. |
+| Does BMI affect medical charges?            | 2D Scatter Plots, Interactive 3D Plot | BMI is continuous; scatter plots highlight trends and reveal critical threshold triggers (such as BMI >= 30).                                                            |
+| Do charges increase with age?               | Scatter Plots                         | Shows the steady, linear increase in baseline charges as age increases.                                                                                                  |
+| Do region, sex, or children affect charges? | Side-by-Side Bar Charts               | Bar charts allow easy comparison of group averages across demographic categories, revealing that demographic variations are negligible compared to smoking status.       |
+| How do all factors interact together?       | 6-Panel Summary Grid                  | Consolidates visualisations onto a single canvas for an analytical review.                                                                                               |
 
 ## Project Plan
 
